@@ -2,7 +2,7 @@
  * @Author: Nie Chengyong
  * @Date: 2023-02-13 19:56:31
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2023-11-21 10:59:13
+ * @LastEditTime: 2023-11-23 16:55:50
  * @FilePath: /nestjs-ts-vue3-vite/vue3/vite.config.ts
  * @Description:
  *
@@ -140,9 +140,6 @@ export default ({ mode }: ConfigEnv): UserConfig => {
         'vue-router',
         {
           'pinia/dist/pinia': ['storeToRefs'],
-        },
-        {
-          'naive-ui': ['NInput', 'useDialog', 'useMessage', 'useNotification', 'useLoadingBar'],
         },
       ],
       dirs: [

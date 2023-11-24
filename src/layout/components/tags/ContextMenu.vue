@@ -1,13 +1,26 @@
 <template>
-  <n-dropdown
-    :show="show"
+  <el-dropdown
+    v-show="show"
     :options="options"
     :x="x"
     :y="y"
     placement="bottom-start"
     @clickoutside="handleHideDropdown"
-    @select="handleSelect"
-  />
+  >
+    <template #dropdown>
+      <el-dropdown-menu>
+        <el-dropdown-item
+          @click="handleSelect(item.key)"
+          v-for="item in options"
+          :key="item.key"
+          :disabled="item.disabled"
+          :icon="item.icon"
+        >
+          <span>{{ item.label }}</span>
+        </el-dropdown-item>
+      </el-dropdown-menu>
+    </template>
+  </el-dropdown>
 </template>
 
 <script setup lang="ts">

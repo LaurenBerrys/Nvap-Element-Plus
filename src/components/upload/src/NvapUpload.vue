@@ -20,9 +20,9 @@
       <!-- <n-button @click="directory = true" :disabled="true">上传目录</n-button> -->
       <n-upload-dragger v-show="!views">
         <div style="margin-bottom: 12px">
-          <n-icon size="48" :depth="3">
+          <el-icon size="48" :depth="3">
             <icon-system-uicons:upload-alt />
-          </n-icon>
+          </el-icon>
         </div>
         <n-text style="font-size: 16px"> 点击或者拖动文件到该区域来上传 </n-text>
         <n-p depth="3" style="margin: 8px 0 0 0">

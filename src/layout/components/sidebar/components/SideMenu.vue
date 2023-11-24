@@ -1,16 +1,32 @@
 <template>
-  <n-menu
+  <el-menu
     ref="menu"
-    class="side-menu"
-    accordion
-    :indent="18"
-    :collapsed-icon-size="22"
-    :collapsed-width="64"
-    :options="menuOptions"
-    :value="activeKey"
-    :collapsed="configStore.collapsed"
-    @update:value="handleMenuSelect"
-  />
+    router
+    :default-active="activeKey"
+    :ellipsis="false"
+    background-color="transparent"
+    mode="vertical"
+    :collapse="configStore.collapsed"
+  >
+    <template v-for="val in menuOptions">
+      <el-sub-menu :index="val.path" v-if="val.children && val.children.length > 0" :key="val.path">
+        <template #title>
+          <the-icon :icon="val.icon" />
+          <span>{{ val.label }}</span>
+        </template>
+        <el-menu-item-group>
+          <el-menu-item v-for="item in val.children" :key="item" @click="handleMenuSelect(item)">
+            <the-icon :icon="item.icon" />
+            <span>{{ item.label }}</span>
+          </el-menu-item>
+        </el-menu-item-group>
+      </el-sub-menu>
+      <el-menu-item :index="val.path" v-else :key="val.path" @click="handleMenuSelect(item)">
+        <the-icon :icon="val.icon" />
+        <span>{{ val.label }}</span>
+      </el-menu-item>
+    </template>
+  </el-menu>
 </template>
 
 <script setup lang="ts">
@@ -31,17 +47,11 @@
       .map((item) => getMenuItem(item))
       .sort((a, b) => a.order - b.order);
   });
-
-  // const inverted =ref(false)
-  // watch(configStore, (val) => {
-  //   // inverted.value =val.isDark
-  // })
   const menu: any = ref(null);
   watch(curRoute, async () => {
     await nextTick();
     menu.value?.showOption();
   });
-
   function resolvePath(basePath, path) {
     if (isExternal(path)) return path;
     return (
@@ -104,7 +114,7 @@
     return null;
   }
 
-  function handleMenuSelect(key, item) {
+  function handleMenuSelect(item) {
     if (isExternal(item.path)) {
       window.open(item.path);
     } else {

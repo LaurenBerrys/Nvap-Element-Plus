@@ -14,8 +14,8 @@
           <icon-custom-logo mr-10 text-50 color-primary />{{ title }}
         </h5>
         <div mt-30>
-          <n-input
-            v-model:value="loginInfo.name"
+          <el-input
+            v-model="loginInfo.name"
             autofocus
             class="text-16 items-center h-50 pl-10"
             placeholder="admin"
@@ -23,8 +23,8 @@
           />
         </div>
         <div mt-30>
-          <n-input
-            v-model:value="loginInfo.password"
+          <el-input
+            v-model="loginInfo.password"
             class="text-16 items-center h-50 pl-10"
             type="password"
             show-password-on="mousedown"
@@ -35,7 +35,7 @@
         </div>
 
         <div mt-20>
-          <n-checkbox
+          <el-checkbox
             :checked="isRemember"
             label="记住我"
             :on-update:checked="(val) => (isRemember = val)"
@@ -43,7 +43,7 @@
         </div>
 
         <div mt-20>
-          <n-button
+          <el-button
             w-full
             h-50
             rounded-5
@@ -53,7 +53,7 @@
             @click="handleLogin"
           >
             登录
-          </n-button>
+          </el-button>
         </div>
       </div>
     </div>
@@ -75,29 +75,17 @@
     name: '',
     password: '',
   });
-
-  initLoginInfo();
-  function initLoginInfo() {
-    // const localLoginInfo = lStorage.get('loginInfo')
-    // if (localLoginInfo) {
-    //   loginInfo.value.name = localLoginInfo.name || ''
-    //   loginInfo.value.password = localLoginInfo.password || ''
-    // }
-  }
-
+  const message = useMessage();
   const isRemember = useStorage('isRemember', false);
   const loading = ref(false);
   async function handleLogin() {
     const { name, password } = loginInfo.value;
     if (!name || !password) {
-      window.$message.warning('请输入用户名和密码');
+      message.warning('请输入用户名和密码');
       return;
     }
     try {
-      // loading.value = true;
-      // window.$message.loading('正在验证...');
       const { data } = await loginReq({ name, password: password.toString() });
-      // window.$message.success('登录成功');
       useAppStore().setToken(data.token, name);
       if (query.redirect) {
         const path: any = query.redirect;
@@ -108,7 +96,6 @@
       }
     } catch (error) {
       console.error(error);
-      // window.$message.removeMessage();
     }
     loading.value = false;
   }

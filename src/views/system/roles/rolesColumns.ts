@@ -7,8 +7,8 @@
  * @Description:
  *
  */
-import { FormSchema } from '@/components/Form';
-import { TableAction } from '@/components/Table';
+import { FormSchema } from '@/components/NvapForm';
+import { TableAction } from '@/components/NvapTable';
 import { NTag } from 'naive-ui';
 export const columns = [
   {

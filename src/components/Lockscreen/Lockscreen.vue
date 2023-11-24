@@ -10,9 +10,9 @@
       <div class="lock-box">
         <div class="lock">
           <span class="lock-icon" title="解锁屏幕" @click="onLockLogin(true)">
-            <n-icon>
+            <!-- <el-icon> -->
               <icon-system-uicons:lock/>
-            </n-icon>
+            <!-- </el-icon> -->
           </span>
         </div>
       </div>
@@ -39,13 +39,13 @@
     <!--登录-->
     <template v-if="showLogin">
       <div class="login-box">
-        <n-avatar :size="128">
-          <n-icon>
+        <!-- <n-avatar :size="128"> -->
+          <!-- <el-icon> -->
             <icon-system-uicons:user-male/>
-          </n-icon>
-        </n-avatar>
+          <!-- </el-icon> -->
+        <!-- </n-avatar> -->
         <div class="username">{{ loginParams.name }}</div>
-        <n-input
+        <el-input
           type="password"
           autofocus
           v-model:value="loginParams.password"
@@ -53,12 +53,12 @@
           placeholder="请输入登录密码"
         >
           <template #suffix>
-            <n-icon @click="onLogin" style="cursor: pointer">
+            <el-icon @click="onLogin" style="cursor: pointer">
               <icon-system-uicons:refresh v-if="loginLoading" />
               <icon-system-uicons:arrow-right v-else/>
-            </n-icon>
+            </el-icon>
           </template>
-        </n-input>
+        </el-input>
 
         <div class="w-full flex" v-if="isLoginError">
           <span class="text-red-500">{{ errorMsg }}</span>
@@ -77,7 +77,7 @@
 <script lang="ts">
   import { defineComponent, reactive, toRefs } from 'vue';
   import recharge from './Recharge.vue';
-  import { useOnline, useTime, useBatterer } from '@/hooks/use-online';
+  import { useOnline, useTime, useBatterer } from '@/hooks/use-Online';
   export default defineComponent({
     name: 'Lockscreen',
     components: {

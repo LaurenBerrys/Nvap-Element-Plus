@@ -22,7 +22,7 @@
   </ComponentPage>
 </template>
 <script lang="ts" setup name="from">
-  import { useForm } from '@/components/Form';
+  import { useForm } from '@/components/NvapForm';
   import { schemas } from './index';
   const [
     register,
@@ -53,3 +53,4 @@
   };
 </script>
 <style></style>
+@/components/NvapForm

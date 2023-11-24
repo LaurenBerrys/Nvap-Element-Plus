@@ -1,7 +1,7 @@
 <!--
  * @Author: LaurenBerrys && 949154547@qq.com
  * @Date: 2023-02-22 15:39:41
- * @LastEditTime: 2023-05-16 16:02:41
+ * @LastEditTime: 2023-11-24 15:02:34
  * @Description: 
 -->
 <template>
@@ -15,9 +15,9 @@
         <slot name="action"></slot>
       </template>
     </header>
-    <n-card rounded-10 flex-1 overflow-x-hidden>
+    <el-card rounded-10 flex-1 overflow-x-hidden>
       <slot></slot>
-    </n-card>
+    </el-card>
   </AppPage>
 </template>
 

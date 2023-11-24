@@ -4,9 +4,9 @@
  * @LastEditTime: 2023-06-09 11:33:38
  * @Description: 表格配置
  */
-import { FormSchema } from '@/components/Form';
+import { FormSchema } from '@/components/NvapForm';
 import { NTag,NCheckbox } from 'naive-ui';
-import { BasicColumn, TableAction } from '@/components/Table';
+import { BasicColumn, TableAction } from '@/components/NvapTable';
 export const columns:BasicColumn[] = [
     {
       title: 'id',

@@ -1,26 +1,26 @@
 /*
  * @Author: Nie Chengyong
  * @Date: 2023-03-01 16:13:25
- * @LastEditors: Nie Chengyong
- * @LastEditTime: 2023-03-07 15:16:34
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2023-11-24 15:58:44
  * @FilePath: /nestjs-ts-vue3-vite/vue3/src/views/system/user/userColumns.ts
  * @Description:
  *
  */
-import { FormSchema } from '@/components/Form/index';
-import { TableAction } from '@/components/Table';
+import { FormSchema } from '@/components/NvapForm/index';
+import { TableAction } from '@/components/NvapTable';
 export const columns = [
   {
-    title: 'id',
-    key: 'id',
+    label: 'id',
+    prop: 'id',
   },
   {
-    title: '用户名称',
-    key: 'name',
+    label: '用户名称',
+    prop: 'name',
   },
   {
-    title: '角色',
-    key: 'roles',
+    label: '角色',
+    prop: 'roles',
   },
 ];
 export const action = (handeone, hand) => {
@@ -58,13 +58,10 @@ export const action = (handeone, hand) => {
 
 export const schemas: FormSchema[] = [
   {
-    field: 'name',
-    component: 'NInput',
+    prop: 'name',
+    component: 'ElInput',
     label: '账户名',
     labelMessage: '请输入账户名',
-    giProps: {
-      span: 1,
-    },
     componentProps: {
       placeholder: '请输入账户名',
       onInput: () => {},
@@ -72,13 +69,10 @@ export const schemas: FormSchema[] = [
     rules: [{ required: true, message: '请输入账户名', trigger: ['blur'] }],
   },
   {
-    field: 'realName',
-    component: 'NInput',
+    prop: 'realName',
+    component: 'ElInput',
     label: '昵称',
     labelMessage: '请输入昵称',
-    giProps: {
-      span: 1,
-    },
     componentProps: {
       placeholder: '请输入昵称',
       onInput: () => {},
@@ -86,13 +80,10 @@ export const schemas: FormSchema[] = [
     rules: [{ required: true, message: '请输入昵称', trigger: ['blur'] }],
   },
   {
-    field: 'password',
-    component: 'NInput',
+    prop: 'password',
+    component: 'ElInput',
     label: '密码',
     labelMessage: '请输入密码',
-    giProps: {
-      span: 1,
-    },
     componentProps: {
       placeholder: '请输入密码',
       onInput: () => {},
@@ -100,13 +91,10 @@ export const schemas: FormSchema[] = [
     rules: [{ required: true, message: '密码不能为空', trigger: ['blur'] }],
   },
   {
-    field: 'repassed',
-    component: 'NInput',
+    prop: 'repassed',
+    component: 'ElInput',
     label: '确认密码',
     labelMessage: '请输入确认密码',
-    giProps: {
-      span: 1,
-    },
     componentProps: {
       placeholder: '请输入确认密码',
       onInput: () => {},

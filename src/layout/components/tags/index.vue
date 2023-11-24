@@ -1,15 +1,15 @@
 <!--
  * @Author: Nie Chengyong
  * @Date: 2023-02-16 15:37:21
- * @LastEditors: Nie Chengyong
- * @LastEditTime: 2023-02-21 15:23:29
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2023-11-24 15:53:33
  * @FilePath: /nestjs-ts-vue3-vite/vue3/src/layout/components/tags/index.vue
  * @Description: 
  * 
 -->
 <template>
   <ScrollX ref="scrollXRef" class="bg-white dark:bg-dark!">
-    <n-tag
+    <el-tag
       v-for="tag in tagsStore.tags"
       ref="tabRefs"
       :key="tag.path"
@@ -21,7 +21,7 @@
       @contextmenu.prevent="handleContextMenu($event, tag)"
     >
       {{ tag.title }}
-    </n-tag>
+    </el-tag>
     <ContextMenu
       v-if="contextMenuOption.show"
       v-model:show="contextMenuOption.show"

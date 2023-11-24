@@ -83,9 +83,9 @@
                     @change="(e)=>changeLineColor((e.target as HTMLInputElement).value, index, 'double')"
                   />
                   <div v-show="board.currentLineColor.length > 1" absolute top--10 right-0>
-                    <n-icon size="10" @click="() => deleteLineColor(index)">
+                    <el-icon size="10" @click="() => deleteLineColor(index)">
                       <icon-material-symbols:cancel-outline />
-                    </n-icon>
+                    </el-icon>
                   </div>
                 </div>
               </div>
@@ -103,9 +103,9 @@
                     )
                 "
               >
-                <n-icon size="20">
+                <el-icon size="20">
                   <icon-material-symbols:add />
-                </n-icon>
+                </el-icon>
               </div>
             </div>
             <div v-else flex items-center w-full>
@@ -178,33 +178,33 @@
         <div flex justify-around items-center m-20>
           <n-tooltip trigger="hover">
             <template #trigger>
-              <n-icon size="20" @click="undo">
+              <el-icon size="20" @click="undo">
                 <icon-ri:arrow-go-back-fill />
-              </n-icon>
+              </el-icon>
             </template>
             撤销
           </n-tooltip>
           <n-tooltip trigger="hover">
             <template #trigger>
-              <n-icon size="20" @click="redo">
+              <el-icon size="20" @click="redo">
                 <icon-ic:outline-call-missed-outgoing />
-              </n-icon>
+              </el-icon>
             </template>
             前进
           </n-tooltip>
           <n-tooltip trigger="hover">
             <template #trigger>
-              <n-icon size="20" @click="clean">
+              <el-icon size="20" @click="clean">
                 <icon-iconoir:trash />
-              </n-icon>
+              </el-icon>
             </template>
             删除
           </n-tooltip>
           <n-tooltip trigger="hover">
             <template #trigger>
-              <n-icon size="20" @click="saveImage">
+              <el-icon size="20" @click="saveImage">
                 <icon-iconoir:download />
-              </n-icon>
+              </el-icon>
             </template>
             保存
           </n-tooltip>

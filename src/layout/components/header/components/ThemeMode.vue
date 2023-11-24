@@ -1,7 +1,7 @@
 <!--
  * @Editors: Nie Chengyong
  * @Date: 2023-02-16 14:10:02
- * @LastEditTime: 2023-03-14 16:36:54
+ * @LastEditTime: 2023-11-24 15:24:06
  * @Description: 
 -->
 <script setup lang="ts">
@@ -15,8 +15,8 @@
 </script>
 
 <template>
-  <n-icon mr-20 cursor-pointer size="18" @click="toggleDark">
+  <el-icon mr-20 cursor-pointer size="18" @click="toggleDark">
     <icon-mdi-moon-waning-crescent v-if="isDark" />
     <icon-mdi-white-balance-sunny v-else />
-  </n-icon>
+  </el-icon>
 </template>

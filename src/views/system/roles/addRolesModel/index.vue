@@ -21,7 +21,7 @@
 
 <script setup lang="ts" name="addRolesModel">
   import { useModal } from '@/components/Modal';
-  import { useForm } from '@/components/Form/index';
+  import { useForm } from '@/components/NvapForm/index';
   import { schemas } from '../rolesColumns';
   const [
     modalRegister,
@@ -75,3 +75,4 @@
 </script>
 
 <style scoped></style>
+@/components/NvapForm/index

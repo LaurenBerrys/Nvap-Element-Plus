@@ -2,7 +2,7 @@
  * @Author: Nie Chengyong
  * @Date: 2023-02-16 10:10:55
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2023-04-12 15:07:28
+ * @LastEditTime: 2023-11-23 17:42:11
  * @FilePath: /nestjs-ts-vue3-vite/vue3/src/components/common/Provider.vue
  * @Description: 
  * 
@@ -17,13 +17,15 @@
     useMessage,
     useNotification,
   } from 'naive-ui';
+  import zhCn from 'element-plus/dist/locale/zh-cn.mjs';
+  import en from 'element-plus/dist/locale/en.mjs';
   import { defineComponent } from 'vue';
   import type { NLocale, NDateLocale, GlobalTheme } from 'naive-ui';
   import { naiveThemeOverrides } from '../../settings/theme.json';
   import { setupMessage, setupDialog } from '@/utils/naivetools';
   import { useCssVar } from '@vueuse/core';
   import { kebabCase } from 'lodash-es';
-  import {lighten} from '@/utils/common'
+  import { lighten } from '@/utils/common';
   const { language, isDark } = storeToRefs(useConfigStore());
   const { setTheme, setLanguage } = useConfigStore();
   const locale = ref<NLocale | null>(null);
@@ -37,8 +39,8 @@
       useCssVar(`--${kebabCase(key)}`, document.documentElement).value = common[key] || '';
     }
   };
-  const config =useConfigStore()
-  const getThemeOverrides=computed(()=>{
+  const config = useConfigStore();
+  const getThemeOverrides = computed(() => {
     if (!config.themeColor) return naiveThemeOverrides;
     const appTheme = config.themeColor;
     const lightenStr = lighten(appTheme, 6);
@@ -57,7 +59,7 @@
         colorLoading: appTheme,
       },
     };
-  })
+  });
 
   // 挂载naive组件的方法至window, 以便在全局使用
   const setupNaiveTools = () => {
@@ -70,16 +72,16 @@
 
   const changLangue = (lang: string | null) => {
     if (lang == 'zhCN') {
-      locale.value = zhCN;
-      dateLocale.value = dateZhCN;
+      locale.value = zhCn;
+      dateLocale.value = en;
     } else {
       locale.value = null;
       dateLocale.value = null;
     }
   };
-  onUpdated(()=>{
+  onUpdated(() => {
     setupCssVar();
-  })
+  });
   const NaiveProviderContent = defineComponent({
     setup() {
       setupCssVar();

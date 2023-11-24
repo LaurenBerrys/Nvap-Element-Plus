@@ -2,7 +2,7 @@
  * @Author: Nie Chengyong
  * @Date: 2023-02-15 14:37:06
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2023-05-16 17:37:06
+ * @LastEditTime: 2023-11-23 17:05:56
  * @FilePath: /nestjs-ts-vue3-vite/vue3/src/utils/axios.ts
  * @Description:
  *
@@ -10,6 +10,7 @@
 import { hasOwn } from '@vueuse/core';
 import axios, { AxiosRequestConfig } from 'axios';
 import qs from 'qs';
+const Message =useMessage()
 //使用axios.create()创建一个axios请求实例
 const service = axios.create();
 //请求前拦截
@@ -60,14 +61,15 @@ service.interceptors.response.use(
     if (response) {
       if (hasOwn(response, 'data')) {
         if (noAuthCode.includes(response.data.code)) {
-          window.$message.warning('请重新登录');
+          Message.warning('请重新登录');
           useAppStore().resetStateAndToLogin();
         }
       } else {
-        window.$message.error(err, { duration: 2 * 1000 });
+        
+        Message.error(err);
       }
     } else {
-      window.$message.error(err, { duration: 2 * 1000 });
+      Message.error(err);
     }
     return Promise.reject(err);
   }

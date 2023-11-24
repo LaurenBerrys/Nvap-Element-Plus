@@ -4,7 +4,7 @@
  * @LastEditTime: 2023-06-15 16:39:27
  * @Description:
  */
-import { FormSchema } from '@/components/Form';
+import { FormSchema } from '@/components/NvapForm';
 export const schemas: FormSchema[] = [
   {
     field: 'name',

@@ -1,17 +1,27 @@
 <!--
  * @Author: LaurenBerrys 949154547@qq.com
  * @Date: 2023-04-07 18:17:06
- * @LastEditTime: 2023-04-12 14:52:01
+ * @LastEditTime: 2023-11-24 15:51:51
  * @Description: 
 -->
 <template>
-  <n-drawer
-    :show="modelValue"
+  <el-drawer
+     ::="props.modelValue"
     :width="502"
-    :placement="placement"
-    @mask-click="emit('update:modelValue', false);"
+    :direction="placement"
+    @mask-click="emit('update:modelValue', false)"
   >
-    <n-drawer-content title="主题设置">
+    <template #header> 主题设置 </template>
+    <template #default>
+      <div v-for="color in themeColorList" :key="color" class="flex-x-center">
+        <color-checkbox
+          :color="color"
+          :checked="color === config.themeColor"
+          @click="config.setThemeColor(color)"
+        />
+      </div>
+    </template>
+    <!-- <n-drawer-content title="主题设置">
       <n-divider title-placement="center">系统主题</n-divider>
       <n-grid :cols="8" :x-gap="8" :y-gap="12">
         <n-grid-item v-for="color in themeColorList" :key="color" class="flex-x-center">
@@ -22,37 +32,40 @@
           />
         </n-grid-item>
       </n-grid>
-      <n-space :vertical="true" pt-12>
-        <n-color-picker :value="config.themeColor" :show-alpha="false" @update-value="config.setThemeColor" />
+      <el-space :vertical="true" pt-12>
+        <n-color-picker
+          :value="config.themeColor"
+          :show-alpha="false"
+          @update-value="config.setThemeColor"
+        />
         <n-button :block="true" :type="otherColorBtnType" @click="openModal">更多颜色</n-button>
-      </n-space>
-    </n-drawer-content>
-  </n-drawer>
-  <color-model ref="model"/>
+      </el-space>
+    </n-drawer-content> -->
+  </el-drawer>
+  <color-model ref="model" />
 </template>
 <script setup lang="ts" name="ThemeSetting">
   import ColorCheckbox from './ColorCheckbox.vue';
   import ColorModel from './ColorModel.vue';
-  import type { DrawerPlacement } from 'naive-ui';
-  import {isInTraditionColors}from '../color'
-   defineProps({
+  import { isInTraditionColors } from '../color';
+  const props = defineProps({
     modelValue: {
       type: Boolean,
       default: false,
     },
     placement: {
-      type: String as PropType<DrawerPlacement>,
-      default: 'right',
+      type: String,
+      default: 'rtl',
     },
   });
   const emit = defineEmits(['update:modelValue']);
   const config = useConfigStore();
   const isInOther = computed(() => isInTraditionColors(config.themeColor));
   const otherColorBtnType = computed(() => (isInOther.value ? 'primary' : 'default'));
-  const model=ref()
-  const openModal=()=>{
-    model.value.open()
-  }
+  const model = ref();
+  const openModal = () => {
+    model.value.open();
+  };
   const themeColorList = [
     '#1890ff',
     '#2cb67d',

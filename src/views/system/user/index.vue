@@ -2,7 +2,7 @@
  * @Author: Nie Chengyong
  * @Date: 2023-02-22 15:24:47
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2023-03-13 15:56:24
+ * @LastEditTime: 2023-11-23 17:49:40
  * @FilePath: /nestjs-ts-vue3-vite/vue3/src/views/system/user/index.vue
  * @Description: 
  * 
@@ -18,7 +18,7 @@
       @update:checked-row-keys="onCheckedRow"
     >
       <template #tableButton>
-        <n-button type="primary" size="small" @click="handleAdd">添加用户</n-button>
+        <el-button type="primary" size="small" @click="handleAdd">添加用户</el-button>
       </template>
     </NvapTable>
     <addUser ref="addUse" />

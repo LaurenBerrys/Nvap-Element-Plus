@@ -7,9 +7,9 @@
 <template>
   <div  flex  w-20 h-20 rounded-lg drop-shadow-lg cursor-pointer
    :style="{ backgroundColor: color }">
-   <n-icon v-if="checked" :class="[ isWhite ? 'text-gray-700' : 'text-white']" :size="iconClass">
+   <el-icon v-if="checked" :class="[ isWhite ? 'text-gray-700' : 'text-white']" :size="iconClass">
     <icon-ic-outline-check  />
-   </n-icon>
+   </el-icon>
   </div>
 </template>
 

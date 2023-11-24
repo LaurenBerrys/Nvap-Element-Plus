@@ -28,7 +28,7 @@
   </ComponentPage>
 </template>
 <script lang="ts" setup>
-  import { useForm } from '@/components/Form';
+  import { useForm } from '@/components/NvapForm';
   import { columns2, data, schemas } from './index';
 
   const handleAdd = () => {};
@@ -72,3 +72,4 @@
 </script>
 
 <style></style>
+@/components/NvapForm

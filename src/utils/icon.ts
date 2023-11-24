@@ -1,16 +1,16 @@
 /*
  * @Author: Nie Chengyong
  * @Date: 2023-02-16 11:44:01
- * @LastEditors: Nie Chengyong
- * @LastEditTime: 2023-02-16 12:01:56
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2023-11-23 16:58:57
  * @FilePath: /nestjs-ts-vue3-vite/vue3/src/utils/icon.ts
  * @Description:
  *
  */
 import { h } from 'vue';
 import { Icon } from '@iconify/vue';
-import { NIcon } from 'naive-ui';
 import SvgIcon from '@/components/icon/SvgIcon.vue';
+import { ElIcon } from 'element-plus';
 
 /**
  * @description: 生成icon组件
@@ -20,7 +20,7 @@ import SvgIcon from '@/components/icon/SvgIcon.vue';
  * @example: renderIcon('mdi:home', { size: 12 })
  */
 export function renderIcon(icon, props = { size: 12 }) {
-  return () => h(NIcon, props, { default: () => h(Icon, { icon }) });
+  return () => h(ElIcon, props, { default: () => h(Icon, { icon }) });
 }
 /**
  * @description: 生成自定义icon组件
@@ -30,5 +30,5 @@ export function renderIcon(icon, props = { size: 12 }) {
  * @example: renderCustomIcon('icon', { size: 12 })
  */
 export function renderCustomIcon(icon, props = { size: 12 }) {
-  return () => h(NIcon, props, { default: () => h(SvgIcon, { icon }) });
+  return () => h(ElIcon, props, { default: () => h(SvgIcon, { icon }) });
 }

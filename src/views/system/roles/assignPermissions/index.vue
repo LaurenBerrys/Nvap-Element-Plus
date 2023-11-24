@@ -2,7 +2,7 @@
  * @Author: Nie Chengyong
  * @Date: 2023-03-04 17:06:54
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2023-05-17 09:53:08
+ * @LastEditTime: 2023-11-24 10:32:29
  * @FilePath: /nestjs-ts-vue3-vite/vue3/src/views/system/roles/assignpermissions/index.vue
  * @Description: 
  * 
@@ -52,7 +52,7 @@
   </NvapModal>
 </template>
 <script setup lang="ts" name="AssignPermissions">
-  import { useModal } from '@/components/Modal/src/hooks/useModal';
+  // import { useModal } from '@/components/Modal/src/hooks/useModal';
   import { TreeOption } from 'naive-ui';
   //定义接受父传子的函数getRole
   let role;
@@ -67,15 +67,15 @@
     role = record;
     checkedKeys.value = record.code;
     expandedKeys.value = Tree.value.map((item: any) => item.code);
-    openModal();
+    // openModal();
   };
   defineExpose({ open });
-  const [modalRegister, { openModal, closeModal, setSubLoading }] = useModal({
-    title: '分配菜单和按钮权限',
-    style: {
-      width: '800px',
-    },
-  });
+  // const [modalRegister, { openModal, closeModal, setSubLoading }] = useModal({
+  //   title: '分配菜单和按钮权限',
+  //   style: {
+  //     width: '800px',
+  //   },
+  // });
   const title = ref(''); //菜单名
   const permissions = ref(); //按钮权限
   const updatePermiss = (res) => {
@@ -137,10 +137,10 @@
     updateRoles(id, { code: code, permissions: permiss }).then(({ code, msg }) => {
       if (code == 200) {
         window.$message.success(msg);
-        closeModal();
+        // closeModal();
       } else {
         window.$message(msg);
-        setSubLoading(false);
+        // setSubLoading(false);
       }
     });
   };

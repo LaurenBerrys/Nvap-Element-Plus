@@ -10,18 +10,18 @@
       <span>Layer</span>
       <div>
         <span @click="addLayer" class="text-2xl cursor-pointer tooltip" data-tip="layer.add">
-          <n-icon size="20">
+          <el-icon size="20">
             <icon-iconoir:add-square />
-          </n-icon>
+          </el-icon>
         </span>
         <span
           @click="() => deleteLayer(board?.layer.current)"
           class="ml-3 mr-3 text-2xl cursor-pointer tooltip"
           data-tip="layer.delete"
         >
-          <n-icon size="20">
+          <el-icon size="20">
             <icon-iconoir:remove-square />
-          </n-icon>
+          </el-icon>
         </span>
       </div>
     </div>

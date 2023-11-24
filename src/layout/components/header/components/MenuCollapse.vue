@@ -8,10 +8,10 @@
  * 
 -->
 <template>
-  <n-icon size="20" cursor-pointer @click="Store.setCollapsed()">
+  <el-icon size="20" cursor-pointer @click="Store.setCollapsed()">
     <icon-mdi:format-indent-increase v-if="Store.collapsed" />
     <icon-mdi:format-indent-decrease v-else />
-  </n-icon>
+  </el-icon>
 </template>
 
 <script setup>
