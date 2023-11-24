@@ -1,7 +1,7 @@
 /*
  * @Author: LaurenBerrys && 949154547@qq.com
  * @Date: 2023-02-22 15:22:12
- * @LastEditTime: 2023-09-25 15:52:09
+ * @LastEditTime: 2023-11-24 17:05:41
  * @Description:
  */
 import '@/assets/style/reset.css';
@@ -14,6 +14,7 @@ import { createPinia } from 'pinia';
 import 'uno.css';
 import 'vfonts/FiraCode.css';
 import 'element-plus/theme-chalk/src/base.scss';
+import 'element-plus/dist/index.css';
 import WebSocketClient from './utils/websockt';
 //数据持久化，刷新页面数据不丢失
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';

@@ -2,7 +2,7 @@
  * @Author: Nie Chengyong
  * @Date: 2023-02-13 19:56:31
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2023-11-23 16:55:50
+ * @LastEditTime: 2023-11-24 17:06:52
  * @FilePath: /nestjs-ts-vue3-vite/vue3/vite.config.ts
  * @Description:
  *
@@ -13,7 +13,7 @@ import vue from '@vitejs/plugin-vue';
 //自动引入
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
-import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
+// import { NaiveUiResolver } from 'unplugin-vue-components/resolvers';
 //setup 支持name属性
 import vueSetupExtend from 'vite-plugin-vue-setup-extend'; //setup 支持name属性
 import vueJsx from '@vitejs/plugin-vue-jsx';
@@ -65,8 +65,8 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     proxy: {
       '/nest-api': {
         changeOrigin: true,
-        // target: 'http://120.77.83.106:3000/',
-        target: 'http:/localhost:3000/',
+        target: 'http://120.77.83.106:3000/',
+        // target: 'http:/localhost:3000/',
       },
     },
     // cors: true,
@@ -157,8 +157,8 @@ export default ({ mode }: ConfigEnv): UserConfig => {
     }),
     Components({
       resolvers: [
-        ElementPlusResolver({ importStyle: 'sass' }),
-        NaiveUiResolver(),
+        ElementPlusResolver(),
+        // NaiveUiResolver(),
         IconsResolver({
           customCollections: ['custom'],
           componentPrefix: 'icon',
